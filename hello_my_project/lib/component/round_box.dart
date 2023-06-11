@@ -265,6 +265,7 @@ class RoundBox3 extends StatefulWidget{
   bool obscureText = true;
   bool onlyRead = true;
   TextEditingController? textEditingController;
+  GestureTapCallback ontap;
 
   RoundBox3({
     Key? key,
@@ -274,6 +275,7 @@ class RoundBox3 extends StatefulWidget{
     required this.obscureText,
     required this.onlyRead,
     required TextEditingController? textEditingController,
+    required this.ontap,
   }):this.textEditingController = textEditingController,super(key: key);
 
   @override
@@ -359,7 +361,7 @@ class _RoundBox3State extends State<RoundBox3>{
                   width: 50.0,
                   child: EButton(
                     text: '삭제',
-                    onPressed: (){},
+                    onPressed: widget.ontap,
                   ),
                 ),
 
@@ -418,6 +420,9 @@ class RoundBox4 extends StatefulWidget{
   bool onlyRead = true;
   TextEditingController? textEditingController;
 
+  final FormFieldSetter<String> onSaved;
+  final FormFieldValidator<String> validator;
+
   RoundBox4({
     Key? key,
     required this.str,
@@ -426,6 +431,8 @@ class RoundBox4 extends StatefulWidget{
     required this.obscureText,
     required this.onlyRead,
     required TextEditingController? textEditingController,
+    required this.onSaved,
+    required this.validator,
   }):this.textEditingController = textEditingController,super(key: key);
 
   @override
@@ -492,6 +499,8 @@ class _RoundBox4State extends State<RoundBox4>{
         SizedBox(
           width: 350,
           child: TextFormField(
+            onSaved: widget.onSaved,
+            validator: widget.validator,
             textAlign: TextAlign.center,
             decoration: InputDecoration(
                 border: OutlineInputBorder(
@@ -501,13 +510,12 @@ class _RoundBox4State extends State<RoundBox4>{
             controller: textEditingController!,
             readOnly: widget.onlyRead,
             obscureText: widget.obscureText,
-            maxLength: 50,
+            maxLength: 2,
           ),
         ),
 
       ],
     );
-
   }
 }
 
@@ -520,6 +528,9 @@ class RoundBox5 extends StatefulWidget{
   bool onlyRead = true;
   TextEditingController? textEditingController;
 
+  final FormFieldSetter<String> onSaved;
+  final FormFieldValidator<String> validator;
+
   RoundBox5({
     Key? key,
     required this.str,
@@ -528,6 +539,8 @@ class RoundBox5 extends StatefulWidget{
     required this.obscureText,
     required this.onlyRead,
     required TextEditingController? textEditingController,
+    required this.onSaved,
+    required this.validator,
   }):this.textEditingController = textEditingController,super(key: key);
 
   @override
@@ -538,20 +551,21 @@ class RoundBox5 extends StatefulWidget{
 }
 
 class _RoundBox5State extends State<RoundBox5>{
-  TextEditingController? textEditingController;
+  //TextEditingController? textEditingController;
   bool toggle = true;
 
   @override
   void initState(){
     super.initState();
     toggle = true;
-    if(widget.textEditingController == null){
-      textEditingController = TextEditingController(text: widget.str);
+    /*if(widget.textEditingController == null){
+      //textEditingController = TextEditingController(text: widget.str);
+      textEditingController = TextEditingController();
     }
     else{
       textEditingController = widget.textEditingController;
-      textEditingController!.text = widget.str;
-    }
+      //textEditingController!.text = widget.str;
+    }*/
 
   }
 
@@ -591,13 +605,15 @@ class _RoundBox5State extends State<RoundBox5>{
             SizedBox(
               width: 350,
               child: TextFormField(
+                onSaved: widget.onSaved,
+                validator: widget.validator,
                 textAlign: TextAlign.center,
                 decoration: InputDecoration(
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(55),
                     )
                 ),
-                controller: textEditingController,
+                //controller: textEditingController,
                 readOnly: widget.onlyRead,
                 obscureText: widget.obscureText,
                 maxLength: 50,
@@ -625,13 +641,15 @@ class _RoundBox5State extends State<RoundBox5>{
               height: MediaQuery.of(context).size.height/2.5,
               child: Align(
                 child: TextFormField(
+                  onSaved: widget.onSaved,
+                  validator: widget.validator,
                   textAlign: TextAlign.center,
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(55),
                       )
                   ),
-                  controller: textEditingController,
+                  //controller: textEditingController,
                   readOnly: widget.onlyRead,
                   obscureText: widget.obscureText,
                   maxLength: 500000,
