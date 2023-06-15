@@ -139,7 +139,7 @@ class _MainCalendarState extends State<MainCalendar>{
                       str: schedule.content,
                       label: startTime1.toString() + '시' + startTime2.toString() + '분',
                       obscureText: false,
-                      onlyRead: false,
+                      onlyRead: true,
                       textEditingController: null,
                       ontap: () {
                         GetIt.I<LocalDatabase>().removeSchedule(schedule.id);

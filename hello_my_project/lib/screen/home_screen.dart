@@ -63,7 +63,7 @@ class _HomeScreenState extends State<HomeScreen>{
                       str: schedule.content,
                       label: startTime1.toString() + '시' + startTime2.toString() + '분',
                       obscureText: false,
-                      onlyRead: false,
+                      onlyRead: true,
                       textEditingController: null,
                     );
                   },
