@@ -32,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen>{
             child: Align(
               alignment: Alignment.center,
               child: Text(
-                selectedDate.year.toString() + '년 ' + selectedDate.month.toString() + '월 ' + selectedDate.day.toString(),
+                selectedDate.year.toString() + '년 ' + selectedDate.month.toString() + '월 ' + selectedDate.day.toString() + '일',
                 style: TextStyle(
                   fontSize: 30.0,
                 ),

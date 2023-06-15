@@ -45,11 +45,11 @@ class _MainScreenState extends State<MainScreen>{
           items: [
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
-              label: "hello",
+              label: "home",
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: "hello",
+              icon: Icon(Icons.calendar_month),
+              label: "schedule",
             ),
             /*BottomNavigationBarItem(
               icon: Icon(Icons.home),
