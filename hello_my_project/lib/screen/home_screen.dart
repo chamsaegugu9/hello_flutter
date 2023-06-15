@@ -56,10 +56,12 @@ class _HomeScreenState extends State<HomeScreen>{
                   itemCount: snapshot.data!.length,
                   itemBuilder: (context, index){
                     final Schedule schedule = snapshot.data![index];
+                    final startTime1 = (schedule.startTime / 100).round();
+                    final startTime2 = (schedule.startTime % 100);
                     return RoundBox2(
                       key: ObjectKey(schedule.id),
                       str: schedule.content,
-                      label: schedule.date.hour.toString() + '시' + schedule.date.minute.toString() + '분' + ' ' + index.toString() + ' ' + schedule.id.toString(),
+                      label: startTime1.toString() + '시' + startTime2.toString() + '분',
                       obscureText: false,
                       onlyRead: false,
                       textEditingController: null,
